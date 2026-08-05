@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RedList – Comparison Tracker</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="app" role="main">
+        <div class="header">
+            <div class="title-group">
+                <h1>✦ RedList</h1>
+                <span class="sub">Track what you bought &amp; what's left</span>
+            </div>
+            <div class="stats" id="stats">
+                <span class="stat-item">
+                    <span class="stat-dot total"></span>
+                    Total <span class="num total" id="totalCount">0</span>
+                </span>
+                <span class="stat-item">
+                    <span class="stat-dot bought"></span>
+                    Bought <span class="num bought" id="boughtCount">0</span>
+                </span>
+                <span class="stat-item">
+                    <span class="stat-dot left"></span>
+                    Left <span class="num left" id="leftCount">0</span>
+                </span>
+                <span class="stat-item">
+                    <span class="stat-dot price"></span>
+                    Total Price <span class="num price" id="totalPrice">$0</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="add-form">
+            <div class="input-wrap">
+                <input
+                    type="text"
+                    id="itemInput"
+                    placeholder="Add an item… (e.g. Apple)"
+                    aria-label="New item name"
+                    maxlength="50"
+                />
+            </div>
+            <div class="button-group">
+                <button class="btn-add" id="addBtn">+ Add</button>
+                <button class="btn-currency" id="currencyBtn">$</button>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:24%;">📦 Item</th>
+                            <th style="width:18%;">✅ Bought</th>
+                            <th style="width:18%;">⏳ Left</th>
+                            <th style="width:20%;">💰 Price</th>
+                            <th style="width:10%;">🔗 Get Price</th>
+                            <th style="width:6%; text-align:center;">⚙️</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">📋</div>
+                <p>No items yet. Add your first item!</p>
+            </div>
+        </div>
+
+        <div class="footer-actions">
+            <button class="btn-clear" id="clearAllBtn">🗑️ Clear all</button>
+        </div>
+    </div>
+
+    <div class="modal" id="currencyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Currency</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-search">
+                <input type="text" id="currencySearch" placeholder="Search currency…" />
+            </div>
+            <div class="modal-body" id="currencyList"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="storeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Store</h2>
+                <button class="modal-close" id="storeModalClose">&times;</button>
+            </div>
+            <div class="modal-search">
+                <input type="text" id="storeSearch" placeholder="Search store…" />
+            </div>
+            <div class="modal-body" id="storeList"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="currencies.js"></script>
+    <script src="stores.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
